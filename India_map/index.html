@@ -1,0 +1,78 @@
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link  rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: Because this chart requires geocoding, you'll need mapsApiKey.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+        ['State Code', 'State', 'Number of Centers'],     
+                            [ 'IN-UP','ADRDE (Agra), DIBER (Haldwani), DMSRDE(Kanpur)', 3],
+                            ['IN-MH',' CoPT(Mumbai),NMRL (Ambernath), ADRDE(Pune), ACEM (Nasik), MSC(Pune), R&DE[E](Pune), VRDE ( Ahmednagar)', 6],
+                            ['IN-BR','Bihar', 0],
+                            ['IN-WB','Centre of Milimeeter Wave Semiconductor and devices,CoE in Cryptology ( Kolkata), JBCAT (Jadavpurf)' ,3],
+                            ['IN-MP','DRDE (Gwalior)', 1],
+                            ['IN-TN','RIC, CVRDE (Chennai),DRDO-BU(Coimbatore)', 3],
+                            ['IN-RJ','DL (Jodhpur)', 1],
+                            ['IN-KA','ACECMCABS, CAIR, DARE, DEBEL,LRDE,MTRDC,CEMILAC (Bengaluru), DFRL (Mysore) ', 9],
+                            ['IN-GJ','Gujarat', 0],
+                            ['IN-AP','CAS,ANURAG,ASL,CHESS,DLRL,DMRL,DRDL,RCI (Hyderabad), NSTL (Visakhapatnam)', 9],
+                            ['IN-OR','ITR,PXE (Balasore)', 2],
+                            ['IN-TG','Telangana', 0],
+                            ['IN-KL','NOPL (Kochi)', 1],
+                            ['IN-JH','Jharkhand', 0],
+                            ['IN-AS','Assam', 0],
+                            ['IN-PB','Punjab', 0],
+                            ['IN-CT','SFC(Jagdalpur)', 1],
+                            ['IN-HR','Haryana', 0],
+                            ['IN-JK','DIHAR (Leh)', 1],
+                            ['IN-UT','DEAL, IRDE(Dehradun), ITM (Mussoorie)', 3],
+                            ['IN-HP','Himachal Pradesh', 0],
+                            ['IN-TR','Tripura', 0],
+                            ['IN-ML','Meghalaya', 0],
+                            ['IN-MN','Manipur', 0],
+                            ['IN-NL','Nagaland', 0],
+                            ['IN-GA','Goa', 0],
+                            ['IN-AR', 'Arunachal Pradesh', 0],
+                            ['IN-MZ','Mizoram', 0],
+                            ['IN-SK','DRL (Tezpur)', 1],
+                            ['IN-DL','JATC,ISSA,DESIDOC,CFEES,DIPAS,DIPR,DTRL,JCB,LASTEC,SAG,SSPL,CEPTAM,RAC(Delhi)', 13],
+                            ['IN-PY','Puducherry', 0],
+                            ['IN-CH','SASE,TBRL(Chandigarh)', 2],
+                            ['IN-AN','Andaman and Nicobar Islands',0],
+                            ['IN-DN','Dadra and Nagar Haveli', 0],
+                            ['IN-DD','Daman and Diu', 0],
+                            ['IN-LD','Lakshadweep', 0]
+        ]);
+
+        var options = {
+            region:'IN',
+                            domain:'IN',
+                            displayMode:'regions',
+                            colorAxis:{colors:['#00853f', 'black', '#e31b23']},
+                            resolution:'provinces',
+                            backgroundColor:'#FFC0CB',
+                            defaultColor: '#f5f5f5',
+                            datalessRegionColor: '#FFC0CB',
+                            width: 940,
+                            height: 680,
+
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
+        chart.draw(data, options);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="geochart-colors" style="width: 1000px; height: 763px; position: relative; left: 20%;"></div>
+  </body>
+</html>
